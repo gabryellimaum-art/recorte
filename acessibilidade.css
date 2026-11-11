@@ -1,0 +1,119 @@
+/* ========== VARIÁVEIS (valem no site todo) ========== */
+:root {
+  --azul: #1557ff;
+  --lima: #c8f000;
+  --ui-fundo: #ffffff;
+  --ui-texto: #0b1230;
+}
+
+/* ---------- TAMANHO DO TEXTO (tudo em rem acompanha) ---------- */
+html[data-tamanho="0"] { font-size: 87.5%; }
+html[data-tamanho="1"] { font-size: 100%; }
+html[data-tamanho="2"] { font-size: 112.5%; }
+html[data-tamanho="3"] { font-size: 125%; }
+html[data-tamanho="4"] { font-size: 150%; }
+
+/* ---------- MODO ESCURO ---------- */
+html[data-tema="escuro"] {
+  --ui-fundo: #14162b;
+  --ui-texto: #ffffff;
+}
+html[data-tema="escuro"] body {
+  background-color: #14162b;
+  background-blend-mode: multiply;
+}
+
+/* ---------- CORES (paletas provisórias) ---------- */
+html[data-cor="deuteranopia"],
+html[data-cor="protanopia"] {
+  --azul: #0072b2;
+  --lima: #f0e442;
+}
+html[data-cor="tritanopia"] {
+  --azul: #cc3311;
+  --lima: #66ccee;
+}
+
+/* ========== BOTÃO DE FERRAMENTAS ========== */
+.acess-botao {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10000;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.18s steps(4);
+}
+.acess-botao img {
+  display: block;
+  width: 3.25rem;
+  height: auto;
+  image-rendering: pixelated;
+}
+.acess-botao:hover,
+.acess-botao:focus-visible,
+.acess-botao[aria-expanded="true"] {
+  transform: translateY(-3px) scale(1.08);
+}
+.acess-botao:active { transform: translateY(1px) scale(0.96); }
+
+/* ========== PAINEL ========== */
+.acess-painel {
+  position: fixed;
+  top: 4.5rem;
+  right: 1.25rem;
+  z-index: 10000;
+  width: 12.5rem;
+  padding: 0.7rem;
+  background: var(--ui-fundo);
+  color: var(--ui-texto);
+  border: 3px solid var(--azul);
+  box-shadow: 4px 4px 0 var(--azul);
+  font-family: "Montserrat", sans-serif;
+}
+.acess-painel[hidden] { display: none; }
+
+.acess-grupo { margin-bottom: 0.7rem; }
+.acess-grupo:last-child { margin-bottom: 0; }
+
+.acess-grupo h2 {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.acess-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.acess-opcao {
+  flex: 1 1 auto;
+  padding: 0.35rem 0.4rem;
+  font: 600 0.68rem "Montserrat", sans-serif;
+  color: var(--ui-texto);
+  background: transparent;
+  border: 2px solid var(--azul);
+  cursor: pointer;
+}
+.acess-opcao:hover { background: var(--lima); color: #0b1230; }
+.acess-opcao[aria-pressed="true"] {
+  background: var(--azul);
+  color: #ffffff;
+}
+.acess-opcao:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.acess-botao:focus-visible,
+.acess-opcao:focus-visible {
+  outline: 3px solid var(--lima);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acess-botao { transition: none; }
+}

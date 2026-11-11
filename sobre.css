@@ -1,0 +1,326 @@
+/* =========================================================
+   SOBRE (QUEM SOMOS)
+
+   PAINEL DE AJUSTES (logo abaixo):
+   Regra geral: 1vw = 1% da largura da tela.
+   Número maior = mais espaço / mais pra direita / mais pra baixo.
+   Número negativo (ex: -1vw) = vai para o lado contrário.
+   Mude UM valor, Ctrl+S, Ctrl+F5 e veja o resultado.
+   ========================================================= */
+:root {
+  /* ---------- CORES ---------- */
+  --azul: #1557ff;
+  --lima: #c8f000;
+  --fundo: #f6f4f8;
+  --topo-fundo: #ffffff;          /* cor do bloco "Quem somos?" (igual à barra do menu) */
+
+  /* ---------- MARGENS GERAIS ---------- */
+  --recuo: 6.5vw;                 /* margem esquerda/direita de tudo */
+  --col-dir: 59.6vw;              /* onde começa a coluna da direita (De onde veio / Upcycling) */
+
+  /* ---------- TOPO "QUEM SOMOS?" ---------- */
+  --topo-cima: 7.6vw;             /* espaço entre a linha tracejada e o CONHECER */
+  --topo-baixo: 6vw;              /* espaço entre o subtítulo e o bloco azul */
+  --selo-titulo: 4.9vw;           /* distância CONHECER > título */
+  --titulo-subtitulo: 2vw;        /* distância título > subtítulo */
+
+  /* ---------- 4 BLOCOS + ROLO DE LINHA ---------- */
+  --q-esq: 28.6vw;                /* largura da coluna da esquerda (título + frase "AQUI, A ROUPA") */
+  --q-dir: 35vw;                  /* largura da coluna da direita (texto + frase "CADA PEÇA") */
+  --q-linha: 4.5vw;               /* espaço entre os blocos de cima e as duas frases de baixo */
+  --frase-y: 1.8vw;               /* desce (+) ou sobe (-) só as duas frases de baixo */
+  --quadro-baixo: 1.5vw;          /* espaço depois das frases, antes de "De onde veio" */
+  --rolo-w: clamp(7rem, 11.9vw, 15rem);  /* TAMANHO do rolo de linha */
+  --rolo-x: -1.2vw;               /* rolo: positivo = direita, negativo = esquerda */
+  --rolo-y: 6vw;                /* rolo: positivo = desce, negativo = sobe */
+
+  /* ---------- DE ONDE VEIO / UPCYCLING / JORNADA ---------- */
+  --inspiracao-topo: 3.5vw;       /* espaço acima de "De onde veio a inspiração?" */
+  --inspiracao-texto-y: 3vw;      /* espaço entre o título e os 2 textos abaixo dele */
+  --upcycling-y: 5.5vw;           /* espaço acima de "O que é upcycling?" (menor = bloco sobe) */
+  --jornada-y: 4vw;               /* espaço acima de "Sua jornada no RE.CORTE" */
+
+  /* ---------- CARDS DA JORNADA ---------- */
+  --card-largura: clamp(15rem, 21vw, 26rem);
+  --texto-garimpar: 66%;          /* onde começa o texto dentro de cada card (maior = desce) */
+  --texto-conhecer: 69.6%;
+  --texto-criar: 69.4%;
+  --espaco-fecho: 7vw;            /* espaço ACIMA e ABAIXO da frase "Essa jornada cria..." (centraliza) */
+
+  /* ---------- TRÊS COLEÇÕES (mini cards) ---------- */
+  --minicards-y: 5.3vw;           /* espaço entre o título e os 3 cards (maior = cards descem) */
+  --colecoes-fecho-y: 1.7vw;      /* espaço entre os cards e a frase "Cada coleção abre..." */
+
+  /* ---------- PALAVRAS-CHAVE ---------- */
+  --palavras-y: 7.5vw;            /* espaço acima de "Nossas palavras-chave" (menor = bloco sobe) */
+}
+
+/* ================= BASE ================= */
+*, *::before, *::after { box-sizing: border-box; }
+body.sobre {
+  margin: 0;
+  background: var(--fundo);
+  font-family: "Montserrat", sans-serif;
+  color: var(--azul);
+  overflow-x: clip;
+}
+.sobre strong { font-weight: 700; }
+
+.sobre__texto {
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.7rem);
+  line-height: 1.2;
+  font-weight: 400;
+}
+.sobre__h2 {
+  margin: 0 0 clamp(1rem, 1.6vw, 2rem);
+  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.8vw, 6rem);
+  line-height: 1.05;
+  color: #fff;
+  white-space: nowrap;
+}
+.sobre__h2--azul { color: var(--azul); }
+/* títulos centralizados (Três coleções / Palavras-chave) */
+.sobre__h2--recuo { text-align: center; }
+
+/* ================= TOPO ================= */
+.sobre__corte {
+  height: calc(0.9vw + 0.45rem);
+  background-color: var(--topo-fundo);
+  background-image: repeating-linear-gradient(90deg, var(--azul) 0 1.6vw, transparent 1.6vw 3.2vw);
+  background-size: 100% 0.45rem;
+  background-position: 0 0.9vw;
+  background-repeat: no-repeat;
+}
+.sobre__topo {
+  background: var(--topo-fundo);
+  text-align: center;
+  padding: var(--topo-cima) 1rem var(--topo-baixo);
+}
+.sobre__selo {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--selo-titulo);
+}
+.sobre__selo img { filter: url(#pinta-azul); }
+.sobre__selo-texto { display: block; width: clamp(7rem, 11vw, 13rem); image-rendering: pixelated; }
+.sobre__selo-estrela { position: absolute; width: clamp(.7rem, 1.2vw, 1.4rem); image-rendering: pixelated; }
+.sobre__selo-estrela--esq { left: -2.14vw; bottom: 0; }
+.sobre__selo-estrela--dir { right: -1.8vw; top: -0.85vw; }
+.sobre__titulo {
+  margin: 0;
+  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
+  font-weight: 400;
+  font-size: clamp(3rem, 8.7vw, 10rem);
+  line-height: 1;
+  color: var(--azul);
+}
+.sobre__subtitulo {
+  margin: var(--titulo-subtitulo) 0 0;
+  font-size: clamp(1rem, 1.7vw, 2rem);
+  font-weight: 700;
+  color: var(--azul);
+}
+
+/* ================= BLOCO AZUL ================= */
+.sobre__azul {
+  background: var(--azul);
+  color: #fff;
+  padding: clamp(3rem, 5vw, 6rem) 0 clamp(5rem, 9vw, 11rem);
+}
+.sobre__azul > section { padding-inline: var(--recuo); }
+
+/* ---------- 4 blocos + rolo ---------- */
+.sobre__quadro {
+  --q-vao: calc(100vw - 2 * var(--recuo) - var(--q-esq) - var(--q-dir));
+  display: grid;
+  grid-template-columns: var(--q-esq) var(--q-dir);
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  row-gap: var(--q-linha);
+  padding-block: clamp(1rem, 2vw, 2rem) var(--quadro-baixo);
+}
+.sobre__chamada {
+  grid-area: 1 / 1;
+  align-self: start;
+  margin: 0;
+  font-size: clamp(1.5rem, 2.45vw, 3.2rem);
+  line-height: 1.1;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.sobre__quadro .sobre__texto { grid-area: 1 / 2; align-self: start; }
+.sobre__rolo {
+  grid-area: 1 / 1 / 2 / 3;
+  justify-self: start;
+  align-self: start;
+  display: block;
+  width: var(--rolo-w);
+  margin-left: calc(var(--q-esq) + var(--q-vao) / 2 - var(--rolo-w) / 2 + var(--rolo-x));
+  margin-top: var(--rolo-y);
+  image-rendering: pixelated;
+}
+.sobre__frase {
+  grid-row: 2;
+  align-self: start;
+  justify-self: center;
+  width: max-content;
+  margin: var(--frase-y) 0 0;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
+  font-size: clamp(0.9rem, 1.3vw, 1.7rem);
+  line-height: 1.05;
+}
+.sobre__frase--esq { grid-column: 1; }
+.sobre__frase--dir { grid-column: 2; }
+
+/* ---------- De onde veio / Upcycling ---------- */
+.sobre__duas-colunas {
+  display: grid;
+  grid-template-columns: 34vw 34vw;
+  column-gap: calc(var(--col-dir) - var(--recuo) - 34vw);
+}
+.sobre__duas-colunas:not(.sobre__duas-colunas--upcycling) {
+  grid-template-areas:
+    "titulo titulo"
+    "esq    dir";
+  padding: var(--inspiracao-topo) var(--recuo) clamp(2rem, 4vw, 5rem);
+}
+.sobre__duas-colunas > .sobre__h2 { grid-area: titulo; margin-bottom: var(--inspiracao-texto-y); }
+.sobre__texto--esq { grid-area: esq; }
+.sobre__texto--dir { grid-area: dir; }
+
+.sobre__duas-colunas--upcycling {
+  grid-template-areas: "reserva dir";
+  padding: var(--upcycling-y) var(--recuo) 0;
+}
+.sobre__reserva { grid-area: reserva; }                 /* espaço vazio da esquerda (ainda sem conteúdo) */
+.sobre__coluna-dir { grid-area: dir; }
+.sobre__coluna-dir .sobre__texto { margin-bottom: clamp(1.4rem, 2.2vw, 2.8rem); }
+
+/* ---------- Jornada ---------- */
+.sobre__jornada { padding-top: var(--jornada-y); }
+.sobre__texto--intro { max-width: 34vw; }
+
+.sobre__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(2rem, 7vw, 9rem);
+  margin-top: clamp(2rem, 4vw, 5rem);
+}
+.jcard {
+  --texto-top: 66%;
+  position: relative;
+  width: var(--card-largura);
+  font-size: calc(var(--card-largura) / 20);
+}
+.jcard--garimpar { --texto-top: var(--texto-garimpar); }
+.jcard--conhecer { --texto-top: var(--texto-conhecer); }
+.jcard--criar    { --texto-top: var(--texto-criar); }
+/* os 3 cards com a mesma altura. Se re-exportar o card Garimpar com a mesma altura dos outros, pode apagar a linha aspect-ratio */
+.jcard > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 402 / 578;
+  object-fit: fill;
+  image-rendering: pixelated;
+}
+.jcard__texto {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: var(--texto-top);
+  text-align: center;
+  color: var(--azul);
+}
+.jcard__texto h3 { margin: 0 0 0.4em; font-size: 1.15em; font-weight: 700; }
+.jcard__texto p  { margin: 0; font-size: 0.85em; line-height: 1.3; }
+
+/* frases finais */
+.sobre__fecho {
+  margin: clamp(2rem, 4vw, 5rem) auto 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: clamp(1rem, 1.6vw, 2rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+.sobre__fecho--jornada { margin-top: var(--espaco-fecho); font-size: clamp(1rem, 1.5vw, 1.9rem); }
+
+/* ---------- Três coleções ---------- */
+.sobre__colecoes { padding-top: var(--espaco-fecho); }
+.sobre__colecoes .sobre__h2 { font-size: clamp(1.5rem, 3.6vw, 4.4rem); }
+.sobre__minicards {
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  margin-top: var(--minicards-y);
+}
+.sobre__minicard { display: block; width: 21vw; transition: transform .18s steps(4); }
+.sobre__minicard img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+.sobre__minicard:hover,
+.sobre__minicard:focus-visible { transform: translateY(-6px) scale(1.03); }
+.sobre__colecoes .sobre__fecho { margin-top: var(--colecoes-fecho-y); font-weight: 400; }
+
+/* ---------- Palavras-chave ---------- */
+.sobre__palavras { padding-top: var(--palavras-y); }
+.sobre__lista {
+  list-style: none;
+  margin: clamp(2rem, 3vw, 4rem) 0 0;
+  padding: 0 3vw;
+}
+.sobre__lista li {
+  display: grid;
+  grid-template-columns: 5vw 1fr 34vw;   /* seta | palavra | texto */
+  align-items: center;
+  margin-bottom: clamp(2rem, 3.4vw, 4.4rem);
+}
+.sobre__seta {
+  width: 3.8vw;
+  height: auto;
+  image-rendering: pixelated;
+  transform: translate(-1.4vw, -0.45vw);  /* esquerda e cima */
+}
+.sobre__palavra {
+  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
+  font-size: clamp(1.5rem, 3.3vw, 4.2rem);
+  line-height: 1;
+}
+
+/* ================= INTEGRANTES ================= */
+.sobre__integrantes {
+  padding: clamp(3rem, 5vw, 6rem) var(--recuo) clamp(10rem, 18vw, 22rem);
+}
+.sobre__texto--azul { max-width: 33vw; color: var(--azul); }
+.sobre__integrantes .sobre__h2 { margin-top: clamp(3rem, 5vw, 6rem); }
+.sobre__lista-integrantes { min-height: 10rem; }   /* reservado: cards dos integrantes */
+
+/* ================= CELULAR ================= */
+@media (max-width: 800px) {
+  .sobre__quadro,
+  .sobre__duas-colunas,
+  .sobre__duas-colunas--upcycling { display: block; }
+  .sobre__h2, .sobre__chamada, .sobre__frase, .sobre__fecho { white-space: normal; }
+  .sobre__chamada br, .sobre__frase br, .sobre__fecho br { display: none; }
+  .sobre__chamada { margin-bottom: 1rem; }
+  .sobre__rolo { margin: 1.5rem auto; width: 6rem; }
+  .sobre__frase { width: auto; margin-top: 2rem; }
+  .sobre__texto--intro, .sobre__texto--azul { max-width: none; }
+  .sobre__duas-colunas .sobre__texto,
+  .sobre__duas-colunas > .sobre__h2 { margin-bottom: 1.5rem; }
+  .sobre__reserva { display: none; }
+  .jcard { --card-largura: 70vw; }
+  .sobre__minicards { flex-direction: column; align-items: center; }
+  .sobre__minicard { width: 70vw; }
+  .sobre__lista { padding: 0; }
+  .sobre__lista li { grid-template-columns: 3rem 1fr; }
+  .sobre__lista li .sobre__texto { grid-column: 1 / -1; margin-top: .6rem; }
+  .sobre__seta { width: 2.2rem; transform: none; }
+}
