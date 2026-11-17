@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raízes Vivas | RE.CORTE</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,10 @@
   <link rel="stylesheet" href="fontes.css">
   <link rel="stylesheet" href="colecao.css">
   <link rel="stylesheet" href="rodape.css">
+  <link rel="stylesheet" href="ajuda.css">
 </head>
 <body class="colecao colecao--raizes">
+  <body class="..." data-ajuda="conhecer"></body>
 
   <main>
 
@@ -77,6 +79,7 @@
       </div>
 
       <img class="colecao__mala" src="img/colecoes/raizes/4x/cocar@4x.png" alt="Cocar de penas vermelhas, pretas e brancas">
+     <button class="esteregg" type="button" data-peca="jaquetaverde" data-na-foto data-x="89" data-y="20"></button>
 
       <div class="colecao__historia-linha">
         <p>
@@ -119,6 +122,7 @@
 
       <article class="colecao__slide">
         <img class="colecao__faixa-foto" src="img/colecoes/raizes/fotos-raizes/time.jpg" alt="Time de futebol do povo Maxakali posando em campo, em pé e agachado">
+        <button class="esteregg" type="button" data-peca="toucatucum" style="--x: 16%; --y: 19%;"></button>
         <div class="colecao__slide-texto">
           <h3 class="colecao__slide-titulo colecao__slide-titulo--pequeno">TIME DE FUTEBOL DO<br>POVO MAXAKALI</h3>
           <p class="colecao__slide-ano">1988</p>
@@ -168,6 +172,7 @@
           <div class="cartao__moldura">
             <div class="cartao__miolo">
               <img class="cartao__foto" src="img/colecoes/raizes/fotos-raizes/artesanatos.jpg" alt="Mulher com coroa de flores vermelhas segurando uma cesta trançada, ao lado de peças de artesanato">
+             <button class="esteregg" type="button" data-peca="camisaraflechavermelha" data-na-foto data-x="71" data-y="25"></button>
               <div class="cartao__texto">
                 <h3 class="cartao__titulo">ARTESANATO</h3>
                 <p>Cestarias, cerâmicas, trançados, colares e adornos que inspiram texturas, tramas e sobreposições.</p>
@@ -199,6 +204,7 @@
           <div class="cartao__moldura">
             <div class="cartao__miolo">
               <img class="cartao__foto" src="img/colecoes/raizes/fotos-raizes/palavras.jpg" alt="Jacaré-açu com a cabeça fora da água">
+              <button class="esteregg" type="button" data-peca="calcakusiwa" style="--x: 14%; --y: 70%;"></button>
               <div class="cartao__texto">
                 <h3 class="cartao__titulo">PALAVRAS DE<br>ORIGEM INDÍGENA</h3>
                 <p>Estão presentes em nomes de lugares, rios e cidades, carregando memória e transformando a cultura na própria linguagem.</p>
@@ -234,5 +240,8 @@
   <script src="acessibilidade.js"></script>
   <script src="colecao.js"></script>
   <script src="rodape.js"></script>
+  <script src="ajuda.js"></script>
+  <script src="pecas.js"></script>
+<script src="esteregg.js"></script>
 </body>
 </html>
