@@ -15,44 +15,49 @@
   --topo-fundo: #ffffff;          /* cor do bloco "Quem somos?" (igual à barra do menu) */
 
   /* ---------- MARGENS GERAIS ---------- */
+  --espaco: 7.8vw;                /* ESPAÇO PADRÃO entre um bloco e outro (o "quadrado" da grid). Mude aqui e todos mudam */
   --recuo: 6.5vw;                 /* margem esquerda/direita de tudo */
-  --col-dir: 59.6vw;              /* onde começa a coluna da direita (De onde veio / Upcycling) */
+  --col-dir: 58.5vw;              /* onde começa a coluna da direita: igual nos 3 blocos (= 100vw - recuo - --q-dir) */
 
   /* ---------- TOPO "QUEM SOMOS?" ---------- */
-  --topo-cima: 7.6vw;             /* espaço entre a linha tracejada e o CONHECER */
-  --topo-baixo: 6vw;              /* espaço entre o subtítulo e o bloco azul */
+  --topo-cima: 6vw;               /* espaço entre a linha tracejada de cima e o título QUEM SOMOS? */
+  --topo-baixo: 6vw;              /* espaço entre o subtítulo e a linha tracejada de baixo */
   --selo-titulo: 4.9vw;           /* distância CONHECER > título */
   --titulo-subtitulo: 2vw;        /* distância título > subtítulo */
 
   /* ---------- 4 BLOCOS + ROLO DE LINHA ---------- */
   --q-esq: 28.6vw;                /* largura da coluna da esquerda (título + frase "AQUI, A ROUPA") */
   --q-dir: 35vw;                  /* largura da coluna da direita (texto + frase "CADA PEÇA") */
-  --q-linha: 4.5vw;               /* espaço entre os blocos de cima e as duas frases de baixo */
+  --q-linha: 1.5vw;               /* espaço entre os blocos de cima e as duas frases de baixo */
   --frase-y: 1.8vw;               /* desce (+) ou sobe (-) só as duas frases de baixo */
-  --quadro-baixo: 1.5vw;          /* espaço depois das frases, antes de "De onde veio" */
+  --quadro-baixo: 0vw;          /* espaço depois das frases, antes de "De onde veio" */
   --rolo-w: clamp(7rem, 11.9vw, 15rem);  /* TAMANHO do rolo de linha */
-  --rolo-x: -1.2vw;               /* rolo: positivo = direita, negativo = esquerda */
+  --rolo-x: 0.3vw;               /* rolo: positivo = direita, negativo = esquerda */
   --rolo-y: 6vw;                /* rolo: positivo = desce, negativo = sobe */
 
   /* ---------- DE ONDE VEIO / UPCYCLING / JORNADA ---------- */
-  --inspiracao-topo: 3.5vw;       /* espaço acima de "De onde veio a inspiração?" */
-  --inspiracao-texto-y: 3vw;      /* espaço entre o título e os 2 textos abaixo dele */
-  --upcycling-y: 5.5vw;           /* espaço acima de "O que é upcycling?" (menor = bloco sobe) */
-  --jornada-y: 4vw;               /* espaço acima de "Sua jornada no RE.CORTE" */
+  --inspiracao-topo: var(--espaco);       /* espaço acima de "De onde veio a inspiração?" */
+  --inspiracao-texto-y: var(--espaco);      /* espaço entre o título e os 2 textos abaixo dele */
+  --upcycling-y: var(--espaco);           /* espaço acima de "O que é upcycling?" (menor = bloco sobe) */
+  --jornada-y: var(--espaco);               /* espaço acima de "Sua jornada no RE.CORTE" */
+  --upc-titulo-y: var(--espaco);  /* espaço entre "O QUE É UPCYCLING?" e os textos */
+  --foto-y: 2vw;                  /* ajuste fino da foto do upcycling: positivo desce, negativo sobe */
 
   /* ---------- CARDS DA JORNADA ---------- */
   --card-largura: clamp(15rem, 21vw, 26rem);
   --texto-garimpar: 66%;          /* onde começa o texto dentro de cada card (maior = desce) */
   --texto-conhecer: 69.6%;
   --texto-criar: 69.4%;
-  --espaco-fecho: 7vw;            /* espaço ACIMA e ABAIXO da frase "Essa jornada cria..." (centraliza) */
+  --espaco-fecho: var(--espaco);            /* espaço ACIMA e ABAIXO da frase "Essa jornada cria..." (centraliza) */
 
   /* ---------- TRÊS COLEÇÕES (mini cards) ---------- */
-  --minicards-y: 5.3vw;           /* espaço entre o título e os 3 cards (maior = cards descem) */
-  --colecoes-fecho-y: 1.7vw;      /* espaço entre os cards e a frase "Cada coleção abre..." */
+  --minicards-y: var(--espaco);           /* espaço entre o título e os 3 cards (maior = cards descem) */
+  --colecoes-fecho-y: 4.5vw;      /* espaço entre os cards e a frase "Cada coleção abre..." */
 
   /* ---------- PALAVRAS-CHAVE ---------- */
-  --palavras-y: 7.5vw;            /* espaço acima de "Nossas palavras-chave" (menor = bloco sobe) */
+  --azul-fim: 6.5vw;                /* espaço azul que sobra depois das palavras-chave, até o bloco azul acabar */
+  --palavras-lista-y: 5vw;        /* espaço entre "NOSSAS PALAVRAS-CHAVE:" e a lista de palavras */
+  --palavras-y: var(--espaco);            /* espaço acima de "Nossas palavras-chave" (menor = bloco sobe) */
 }
 
 /* ================= BASE ================= */
@@ -97,7 +102,18 @@ body.sobre {
 .sobre__topo {
   background: var(--topo-fundo);
   text-align: center;
-  padding: var(--topo-cima) 1rem var(--topo-baixo);
+  padding: var(--topo-cima) 1rem 0;
+}
+/* linha tracejada de baixo, igual à de cima */
+.sobre__topo::after {
+  content: "";
+  display: block;
+  margin: var(--topo-baixo) -1rem 0;
+  height: calc(0.9vw + 0.45rem);
+  background-image: repeating-linear-gradient(90deg, var(--azul) 0 1.6vw, transparent 1.6vw 3.2vw);
+  background-size: 100% 0.45rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
 }
 .sobre__selo {
   position: relative;
@@ -128,7 +144,7 @@ body.sobre {
 .sobre__azul {
   background: var(--azul);
   color: #fff;
-  padding: clamp(3rem, 5vw, 6rem) 0 clamp(5rem, 9vw, 11rem);
+  padding: clamp(3rem, 5vw, 6rem) 0 var(--azul-fim);
 }
 .sobre__azul > section { padding-inline: var(--recuo); }
 
@@ -165,10 +181,10 @@ body.sobre {
 .sobre__frase {
   grid-row: 2;
   align-self: start;
-  justify-self: center;
+  justify-self: start;
   width: max-content;
   margin: var(--frase-y) 0 0;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   text-transform: uppercase;
   font-family: var(--fonte-titulo, "Montserrat", sans-serif);
@@ -181,16 +197,18 @@ body.sobre {
 /* ---------- De onde veio / Upcycling ---------- */
 .sobre__duas-colunas {
   display: grid;
-  grid-template-columns: 34vw 34vw;
+  grid-template-columns: 34vw var(--q-dir);
   column-gap: calc(var(--col-dir) - var(--recuo) - 34vw);
 }
 .sobre__duas-colunas:not(.sobre__duas-colunas--upcycling) {
   grid-template-areas:
     "titulo titulo"
     "esq    dir";
-  padding: var(--inspiracao-topo) var(--recuo) clamp(2rem, 4vw, 5rem);
+  padding: var(--inspiracao-topo) var(--recuo) 0;
 }
 .sobre__duas-colunas > .sobre__h2 { grid-area: titulo; margin-bottom: var(--inspiracao-texto-y); }
+/* "De onde veio a inspiração?": uma linha só, centralizada */
+.sobre__duas-colunas:not(.sobre__duas-colunas--upcycling) > .sobre__h2 { justify-self: center; text-align: center; }
 .sobre__texto--esq { grid-area: esq; }
 .sobre__texto--dir { grid-area: dir; }
 
@@ -201,10 +219,15 @@ body.sobre {
 .sobre__reserva { grid-area: reserva; }                 /* espaço vazio da esquerda (ainda sem conteúdo) */
 .sobre__coluna-dir { grid-area: dir; }
 .sobre__coluna-dir .sobre__texto { margin-bottom: clamp(1.4rem, 2.2vw, 2.8rem); }
+.sobre__coluna-dir .sobre__texto:last-child { margin-bottom: 0; }
+.sobre__coluna-dir .sobre__h2 { margin-bottom: var(--upc-titulo-y); }
 
 /* ---------- Jornada ---------- */
 .sobre__jornada { padding-top: var(--jornada-y); }
-.sobre__texto--intro { max-width: 34vw; }
+/* título e frase da jornada: corridos e centralizados */
+.sobre__jornada .sobre__h2,
+.sobre__jornada .sobre__texto--intro { text-align: center; }
+.sobre__texto--intro { max-width: none; }
 
 .sobre__cards {
   display: flex;
@@ -212,7 +235,7 @@ body.sobre {
   justify-content: center;
   align-items: flex-start;
   gap: clamp(2rem, 7vw, 9rem);
-  margin-top: clamp(2rem, 4vw, 5rem);
+  margin-top: var(--espaco);              /* espaço entre a frase da jornada e os 3 cards */
 }
 .jcard {
   --texto-top: 66%;
@@ -273,7 +296,7 @@ body.sobre {
 .sobre__palavras { padding-top: var(--palavras-y); }
 .sobre__lista {
   list-style: none;
-  margin: clamp(2rem, 3vw, 4rem) 0 0;
+  margin: var(--palavras-lista-y) 0 0;
   padding: 0 3vw;
 }
 .sobre__lista li {
@@ -282,6 +305,7 @@ body.sobre {
   align-items: center;
   margin-bottom: clamp(2rem, 3.4vw, 4.4rem);
 }
+.sobre__lista li:last-child { margin-bottom: 0; }
 .sobre__seta {
   width: 3.8vw;
   height: auto;
@@ -319,7 +343,7 @@ body.sobre {
 
 /* ===== INTEGRANTES (versão 2) ===== */
 :root {
-  --int-fundo: 7vw;           /* espaço entre o último card e o rodapé */
+  --int-fundo: calc(var(--espaco) * 1.4);   /* espaço entre o último card e o rodapé (maior = mais espaço) */
   --foto-largura: 52vw;       /* largura da moldura da foto do upcycling */
   --sombra: 1.8vw;            /* grossura da borda laranja de trás da foto */
   --fita: 2.1vw;              /* grossura das fitas (card e foto) */
@@ -331,14 +355,16 @@ body.sobre {
 }
 
 .sobre__integrantes > p {
-  width: 34vw;
-  margin: 0 0 4vw var(--recuo);
+  width: 60vw;                 /* ajuste a largura como preferir */
+  margin: 0 auto 4vw;          /* auto nas laterais centraliza o bloco */
+  text-align: center;          /* centraliza as linhas do texto */
   font-size: 1.05vw;
   line-height: 1.4;
 }
 
 .sobre__integrantes > h2 {
-  margin: 0 0 4vw var(--int-borda);   /* começa onde começa o primeiro card */
+  margin: 0 0 4vw;
+  text-align: center;                 /* CONHEÇA OS INTEGRANTES: centralizado, numa linha só */
 }
 
 .integrantes {
@@ -433,7 +459,8 @@ body.sobre {
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
-  align-self: start;                                  /* não estica até o fim do bloco */
+  align-self: center;                                 /* centralizada na altura do título + textos */
+  translate: 0 var(--foto-y);
   width: var(--foto-largura);
   margin-left: calc(-1 * var(--recuo) - 1vw);         /* encosta na borda esquerda da tela */
   padding: 4.6vw calc(var(--sombra) + 3.6vw) calc(var(--sombra) + 3vw) 4.6vw;

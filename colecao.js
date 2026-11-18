@@ -14,7 +14,6 @@
       s.setAttribute("aria-hidden", ativo ? "false" : "true");
     });
         var ultimo = slides.length > 1 && i === slides.length - 1;
-        car.classList.toggle("colecao__carrossel--volta", ultimo && car.dataset.volta !== "nao");
     botao.setAttribute("aria-label", ultimo ? "Voltar à primeira foto" : "Próxima foto");
   }
 

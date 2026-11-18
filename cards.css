@@ -16,12 +16,12 @@
   --cp-titulo: 1.6vw;
   --cp-texto: 1.15vw;
   --cp-botao: 5.2vw;        /* largura do botão Garimpar */
-  --cp-botao-sobe: -0.3vw;   /* posição do botão inteiro: negativo = sobe, positivo = desce */
+  --cp-botao-sobe: -0.1vw;   /* posição do botão inteiro: negativo = sobe, positivo = desce */
   --cp-botao-letra: 0.78vw;  /* tamanho da letra dentro do botão */
   --cp-botao-x: 0.1vw;         /* empurra a letra: positivo = direita, negativo = esquerda */
   --cp-botao-y: 0vw;         /* empurra a letra: positivo = baixo, negativo = cima */                /* largura do botão */
   --cp-titulo-y: -1.4vw;            /* título: negativo = sobe, positivo = desce */
-  --cp-rodape-y: 0.8vw;             /* texto "Surgiu alguma..." e botão: positivo = desce */
+  --cp-rodape-y: 0.7vw;             /* texto "Surgiu alguma..." e botão: positivo = desce */
 
   --cp-lima: #c8f000;
   --cp-azul: var(--azul, #1557ff);

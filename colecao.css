@@ -660,7 +660,14 @@ body.colecao { overflow-x: clip; }
   .esteregg__peca { animation: none; }
 }
 
-/* ---- popup "peça desbloqueada" ---- */
+/* ---- popup "Que achado!" (moldura img/guarda-roupa/4x/popupachado@4x.png) ---- */
+:root {
+  --ach-largura: 40vw;      /* largura do popup (a altura acompanha a imagem) */
+  --ach-x-y: 78%;           /* altura do botão X dentro da moldura (maior = desce) */
+  --ach-x-x: 50%;           /* posição do botão X para os lados (maior = direita) */
+  --ach-x-tam: 6;           /* tamanho da área clicável do X */
+}
+
 .eg-popup {
   position: fixed;
   inset: 0;
@@ -670,60 +677,85 @@ body.colecao { overflow-x: clip; }
   background: rgba(20, 33, 61, 0.62);
   z-index: 9999;
 }
-
 .eg-popup.is-aberto { display: flex; }
 
 .eg-popup__caixa {
-  width: min(30rem, 88vw);
-  padding: 1.8rem 2rem 1.6rem;
-  background: #f6f4f8;
-  border: 0.35rem solid var(--cor-colecao, #1557ff);
-  box-shadow: 0.6rem 0.6rem 0 rgba(0, 0, 0, 0.3);
-  text-align: center;
+  --u: calc(min(var(--ach-largura), 92vw) / 100);   /* 1u = 1% da largura do popup */
+  position: relative;
+  width: min(var(--ach-largura), 92vw);
   font-family: "Montserrat", sans-serif;
+  text-align: center;
   animation: eg-pula 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
 }
-
 @keyframes eg-pula {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-.eg-popup__aviso {
-  margin: 0 0 1rem;
-  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
-  font-size: 1.6rem;
-  color: var(--cor-colecao, #1557ff);
+.eg-popup__moldura {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
 }
 
+/* área de conteúdo dentro da moldura */
+.eg-popup__conteudo {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 9%;
+  bottom: 26%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--u) * 1.4);
+}
+.eg-popup__conteudo p { margin: 0; }
+
+.eg-popup__aviso {
+  font-family: var(--fonte-titulo, "Montserrat", sans-serif);
+  font-size: calc(var(--u) * 5.5);
+  line-height: 1;
+  color: var(--cor-colecao, #1557ff);
+}
+.eg-popup__achou {
+  font-size: calc(var(--u) * 2.5);
+  color: #14213d;
+}
+.eg-popup__nome {
+  font-weight: 800;
+  color: var(--cor-colecao, #1557ff);
+}
 .eg-popup__img {
-  height: 9rem;
+  height: calc(var(--u) * 20);
   width: auto;
-    max-width: 14vw;
+  max-width: 40%;
   object-fit: contain;
   image-rendering: pixelated;
   display: block;
-  margin: 0 auto 0.8rem;
+}
+.eg-popup__texto {
+  font-size: calc(var(--u) * 2.1);
+  color: #14213d;
 }
 
-.eg-popup__nome { margin: 0 0 0.3rem; font-size: 1.3rem; color: #14213d; }
-.eg-popup__texto { margin: 0 0 1.2rem; font-size: 0.95rem; color: #14213d; }
-
-.eg-popup__botoes { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
-
-.eg-popup__btn {
-  padding: 0.55rem 1.2rem;
-  border: 0.18rem solid #000;
-  border-radius: 0.6rem;
-  background: #fff;
-  color: #000;
-  font: 700 0.9rem/1 "Montserrat", sans-serif;
-  text-decoration: none;
+/* o X já está desenhado na moldura; este botão invisível fica por cima dele */
+.eg-popup__x {
+  position: absolute;
+  left: var(--ach-x-x);
+  top: var(--ach-x-y);
+  width: calc(var(--u) * var(--ach-x-tam));
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  padding: 0;
+  border: 0;
+  background: transparent;
   cursor: pointer;
 }
-
-.eg-popup__btn--forte { background: #c8f000; }
-.eg-popup__btn:hover { transform: translateY(-0.1rem); }
+.eg-popup__x:hover,
+.eg-popup__x:focus-visible { outline: none; }
 
 /* peça sem foto no bloco (ex.: espaço em branco): usa a cor da coleção */
 .esteregg.esteregg--sem-foto .esteregg__contorno { fill: #fff; stroke: #111; }

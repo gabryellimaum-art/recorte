@@ -100,15 +100,15 @@
     popup = document.createElement("div");
     popup.className = "eg-popup";
     popup.innerHTML =
-      '<div class="eg-popup__caixa" role="dialog" aria-modal="true" aria-labelledby="eg-nome">' +
-        '<p class="eg-popup__aviso">PEÇA DESBLOQUEADA!</p>' +
-        '<img class="eg-popup__img" alt="">' +
-        '<h3 class="eg-popup__nome" id="eg-nome"></h3>' +
-        '<p class="eg-popup__texto">Ela já está no seu guarda-roupa.</p>' +
-        '<div class="eg-popup__botoes">' +
-          '<button type="button" class="eg-popup__btn" data-fechar>Continuar</button>' +
-          '<a class="eg-popup__btn eg-popup__btn--forte" href="guarda-roupa.html">Ver guarda-roupa</a>' +
+      '<div class="eg-popup__caixa" role="dialog" aria-modal="true" aria-labelledby="eg-titulo">' +
+        '<img class="eg-popup__moldura" src="img/guarda-roupa/4x/popupachado@4x.png" alt="">' +
+        '<div class="eg-popup__conteudo">' +
+          '<p class="eg-popup__aviso" id="eg-titulo">QUE ACHADO!</p>' +
+          '<p class="eg-popup__achou">Você encontrou <strong class="eg-popup__nome" id="eg-nome"></strong></p>' +
+          '<img class="eg-popup__img" alt="">' +
+          '<p class="eg-popup__texto">A peça foi salva no seu guarda-roupa.</p>' +
         "</div>" +
+        '<button type="button" class="eg-popup__x" data-fechar aria-label="Fechar"></button>' +
       "</div>";
     document.body.appendChild(popup);
     popup.addEventListener("click", function (e) {
