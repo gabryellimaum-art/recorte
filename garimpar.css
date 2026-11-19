@@ -32,7 +32,7 @@ body { font-family: "Montserrat", sans-serif; }
   /* ===== PAINEL DE AJUSTES ===== */
   --logo-largura: min(70%, 110vh);               /* tamanho do RE.CORTE */
   --frase-tamanho: clamp(1rem, 1.7vw, 1.8rem);   /* tamanho da frase */
-  --botao-fonte: clamp(1rem, 1.45vw, 1.45rem);   /* tamanho do botão Ir ao manequim */
+  --botao-fonte: clamp(1rem, 1.45vw, 1.45rem);    /* tamanho do botão Ir ao manequim */
   --tela-gap: 3.5rem;                            /* espaço entre RE.CORTE, frase, botão e faixa */
   --tela-desce: 5rem;                            /* empurra todo o bloco para baixo (0 = centro exato) */
   --faixa-altura: clamp(6.5rem, 8.5vw, 8rem);    /* altura da faixa em loop */
@@ -168,26 +168,23 @@ body { font-family: "Montserrat", sans-serif; }
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .tela {
-    --logo-largura: 70%;          /* tamanho do RE.CORTE (maior = maior) */
-    --frase-tamanho: 0.9rem;      /* frase */
-    --botao-fonte: 0.85rem;       /* botão "Ir ao manequim" */
-    --tela-gap: 1.8rem;           /* espaço entre RE.CORTE, frase, botão e faixa */
-    --faixa-altura: 4.5rem;       /* altura da faixa em loop */
+    --logo-largura: 70%;
+    --frase-tamanho: 0.8rem;
+    --botao-fonte: 0.75rem;
+    --tela-gap: 1.8rem;
+    --faixa-altura: 3.8rem;
     min-height: 0;
-    padding: 2.6rem 0 2.2rem;     /* 1º valor: espaço em cima (maior = tudo desce) | 2º: embaixo */
+    padding: 2.6rem 0 2.2rem;
   }
 
-  /* faixa em loop */
-  .faixa__trilho { gap: 2.5rem; }                              /* espaço entre nomes e roupas */
-  .faixa__nome { font-size: clamp(2.8rem, 13.5vw, 7rem); }     /* tamanho dos nomes */
-  .faixa__peca { height: 12vw; }                               /* tamanho das roupas */
+  .faixa__trilho { gap: 2rem; }
+  .faixa__nome { font-size: clamp(2.2rem, 11vw, 7rem); }
+  .faixa__peca { height: 9.5vw; }
 
-  /* botões de roupa em volta do logo (% do logo) */
-  .capa__botao--conjunto { width: 25%; left: -30.5%; top: 78%; }    /* verde + escuro */
-  .capa__botao--escuro   { width: 12.8%; left: 115.4%; top: -45%; } /* canto superior direito */
+  .capa__botao--conjunto { width: 25%; left: -30.5%; top: 78%; }
+  .capa__botao--escuro   { width: 12.8%; left: 115.4%; top: -45%; }
 
-  /* mover UM elemento sem mexer nos outros: negativo sobe, positivo desce */
-  .capa__marca { translate: 0 0; }       /* RE.CORTE + botões de roupa */
+  .capa__marca { translate: 0 1rem; }
   .capa__frase { translate: 0 0; }
   .ir-manequim { translate: 0 0; }
   .faixa       { translate: 0 0; }
