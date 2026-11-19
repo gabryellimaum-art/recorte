@@ -168,16 +168,17 @@ body { font-family: "Montserrat", sans-serif; }
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .tela {
-    --frase-tamanho: 0.9rem;
-    --tela-gap: 2.25rem;
+    --frase-tamanho: 0.9rem;     /* frase */
+    --botao-fonte: 0.85rem;      /* botão "Ir ao manequim" um pouco menor */
+    --tela-gap: 1.8rem;          /* espaço igual entre RE.CORTE, frase, botão e faixa */
     --tela-desce: 0rem;
-    --faixa-altura: 5.5rem;
-    padding-bottom: 4.5rem;
-    outline: 4px solid red;     /* TESTE: tire depois que confirmar */
+    --faixa-altura: 4.5rem;
+    min-height: 0;               /* deixa de ocupar a tela toda: a parte azul encolhe */
+    padding: 2.6rem 0 2.2rem;    /* respiro em cima e embaixo */
   }
   .faixa__trilho { gap: 2.5rem; }
-  .faixa__nome { font-size: clamp(3rem, 14.6vw, 7rem); }
-  .faixa__peca { height: 12.5vw; }
+  .faixa__nome { font-size: clamp(2.8rem, 13.5vw, 7rem); }   /* acompanha o RE.CORTE */
+  .faixa__peca { height: 12vw; }
 }
 
 /* ================= MOVIMENTO REDUZIDO ================= */
