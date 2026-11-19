@@ -127,7 +127,7 @@
 .cabecalho__menu a[data-colecao="raizes"]:focus-visible { background: #7628ff; }
 
 /* ===== MOBILE: barra com logo central + casinha + menu lateral ===== */
-.cabecalho__casa,
+.cabecalho .cabecalho__casa,
 .lateral,
 .lateral__fundo { display: none; }
 

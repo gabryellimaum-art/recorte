@@ -242,12 +242,17 @@
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .cards-pop {
-    --cp-largura: 92vw;        /* popup maior na tela */
-    --cp-titulo: 3.3vw;
-    --cp-texto: 2.9vw;         /* "Surgiu alguma dúvida..." */
-    --cp-botao-texto: 4.2vw;   /* GARIMPAR */
+    --cp-largura: 92vw;
+    --cp-card-w: calc(var(--cp-largura) * 0.24);  /* cards um pouco menores: sobra espaço embaixo */
+    --cp-gap: calc(var(--cp-largura) * 0.035);
+    --cp-titulo: 2.7vw;        /* título do popup */
+    --cp-texto: 2.3vw;         /* "Surgiu alguma dúvida..." */
+    --cp-botao-texto: 3.2vw;   /* GARIMPAR */
+    --cp-botao-sobe: -1.5vw;   /* sobe o botão: mais negativo = mais alto */
+    --cp-rodape-y: -1vw;       /* sobe o texto + botão juntos */
   }
-  .cp-rodape { gap: 1.6vw; }
+  .cp-rodape { gap: 1vw; }
+  .cp-botao { padding: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cp-giro, .cp-botao { transition: none; }
