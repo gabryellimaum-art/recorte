@@ -125,3 +125,97 @@
 .cabecalho__menu a[data-colecao="faveleiras"]:focus-visible { background: #ff2e8a; }
 .cabecalho__menu a[data-colecao="raizes"]:hover,
 .cabecalho__menu a[data-colecao="raizes"]:focus-visible { background: #7628ff; }
+
+/* ===== MOBILE: barra com logo central + casinha + menu lateral ===== */
+.cabecalho__casa,
+.lateral,
+.lateral__fundo { display: none; }
+
+@media (max-width: 768px) {
+  .cabecalho { padding: 0.5rem 3vw; }
+  .cabecalho__nav { display: flex; justify-content: center; }
+  .cabecalho__grupo { display: none; }                 /* some a barra de botões */
+  .cabecalho__tesoura { height: 3.2rem; margin: 0; }   /* tamanho do logo central */
+
+  .cabecalho .cabecalho__casa {
+    display: flex;
+    position: absolute;
+    left: 3vw;
+    top: 50%;
+    translate: 0 -50%;
+    width: auto;
+    padding: 0.1rem 0.2rem 0.4rem;
+  }
+  .cabecalho__casa .cab-icone { height: 1.5rem; }
+
+  .lateral__fundo {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1900;
+    background: rgba(10, 10, 20, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+  .lateral__fundo.is-aberto { opacity: 1; visibility: visible; }
+
+  .lateral {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1901;
+    width: min(78vw, 19rem);
+    padding: 1rem;
+    overflow-y: auto;
+    background: var(--ui-fundo, #fff);
+    border-right: 3px solid var(--ui-texto, #000);
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition: transform 0.3s, visibility 0.3s;
+  }
+  .lateral.is-aberto { transform: none; visibility: visible; }
+
+  .lateral__topo { display: flex; justify-content: flex-end; margin-bottom: 0.5rem; }
+  .lateral__fechar {
+    padding: 0.2rem 0.6rem;
+    border: 0;
+    background: none;
+    font: 800 2rem/1 "Montserrat", sans-serif;
+    color: var(--ui-texto, #000);
+    cursor: pointer;
+  }
+  .lateral__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .lateral .cab-botao { width: 100%; justify-content: flex-start; font-size: 1rem; }
+
+  .lateral__sub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+  .lateral__sub[hidden] { display: none; }
+  .lateral__sub a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    border-left: 4px solid var(--ui-texto, #000);
+    font: 700 0.95rem "Montserrat", sans-serif;
+    text-decoration: none;
+    color: var(--ui-texto, #000);
+  }
+  .lateral__sub a[data-colecao="arretado"]   { border-color: #ff5a1f; }
+  .lateral__sub a[data-colecao="faveleiras"] { border-color: #ff2e8a; }
+  .lateral__sub a[data-colecao="raizes"]     { border-color: #7628ff; }
+}
