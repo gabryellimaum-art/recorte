@@ -168,7 +168,7 @@ body { font-family: "Montserrat", sans-serif; }
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .tela {
-    --logo-largura: 90%;
+    --logo-largura: 60%;
     --frase-tamanho: 0.8rem;
     --botao-fonte: 0.75rem;
     --tela-gap: 1.8rem;
