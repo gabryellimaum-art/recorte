@@ -165,22 +165,23 @@ body { font-family: "Montserrat", sans-serif; }
   to { transform: translateX(-50%); }
 }
 
+/* ===== MOBILE (celular em pé) ===== */
+@media (max-width: 768px) {
+  .tela {
+    --frase-tamanho: 0.9rem;
+    --tela-gap: 2.25rem;
+    --tela-desce: 0rem;
+    --faixa-altura: 5.5rem;
+    padding-bottom: 4.5rem;
+    outline: 4px solid red;     /* TESTE: tire depois que confirmar */
+  }
+  .faixa__trilho { gap: 2.5rem; }
+  .faixa__nome { font-size: clamp(3rem, 14.6vw, 7rem); }
+  .faixa__peca { height: 12.5vw; }
+}
+
 /* ================= MOVIMENTO REDUZIDO ================= */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .faixa__trilho { animation: none; }
-}
-
-/* ===== MOBILE (celular em pé) ===== */
-@media (max-width: 768px) {
-  .tela {
-    --frase-tamanho: 0.9rem;     /* frase menor */
-    --tela-gap: 2.25rem;         /* espaço entre RE.CORTE, frase, botão e faixa */
-    --tela-desce: 0rem;          /* tira o empurrão para baixo */
-    --faixa-altura: 5.5rem;
-    padding-bottom: 4.5rem;      /* maior = o conjunto sobe mais */
-  }
-  .faixa__trilho { gap: 2.5rem; }
-  .faixa__nome { font-size: clamp(3rem, 14.6vw, 7rem); }   /* acompanha o tamanho do RE.CORTE */
-  .faixa__peca { height: 12.5vw; }
 }

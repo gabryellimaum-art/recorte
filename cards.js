@@ -69,8 +69,8 @@
           '<h2 class="cp-titulo" id="cp-titulo">Passe o mouse pelos cards<br>para conhecer cada RECORTE</h2>' +
           '<div class="cp-cards">' + CARDS.map(htmlCard).join("") + "</div>" +
           '<div class="cp-rodape">' +
-           "<p>Surgiu alguma dúvida durante a página?<br>Clique em <b>Ajuda</b> para ver dicas de como navegar.</p>" +
-'<button type="button" class="cp-botao" data-fechar>GARIMPAR</button>' +
+          "<p>Surgiu alguma dúvida durante a página?<br>Clique em <span class=\"cp-pill cp-so-desk\">? Ajuda</span><b class=\"cp-so-mob\">Ajuda</b> para ver dicas de como navegar.</p>" +
+'<button type="button" class="cp-botao" data-fechar><img class="cp-so-desk" src="' + BOTAO + '" alt=""><span class="cp-botao__txt cp-so-desk">Garimpar</span><strong class="cp-botao__mob cp-so-mob">GARIMPAR</strong></button>' +
           "</div>" +
         "</div>" +
       "</div>";

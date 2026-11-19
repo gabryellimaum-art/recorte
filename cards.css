@@ -228,31 +228,32 @@
 
 /* a tesoura da barra de cima reabre o popup */
 .cabecalho__tesoura[role="button"] { cursor: pointer; }
-/* botão GARIMPAR: só texto */
-.cp-botao {
-  padding: 0.3em 0.6em;
-  font-family: "Montserrat", sans-serif;
-  font-size: var(--cp-botao-texto, 1vw);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: #000;
-  text-transform: uppercase;
-}
+/* desktop: visual original. mobile: Ajuda e GARIMPAR só em texto */
+.cp-so-mob { display: none; }
 
-/* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
+  .cards-pop .cp-so-desk { display: none; }
+  .cards-pop .cp-so-mob { display: inline; }
+
   .cards-pop {
     --cp-largura: 92vw;
-    --cp-card-w: calc(var(--cp-largura) * 0.24);  /* cards um pouco menores: sobra espaço embaixo */
+    --cp-card-w: calc(var(--cp-largura) * 0.24);
     --cp-gap: calc(var(--cp-largura) * 0.035);
-    --cp-titulo: 2.7vw;        /* título do popup */
-    --cp-texto: 2.3vw;         /* "Surgiu alguma dúvida..." */
-    --cp-botao-texto: 3.2vw;   /* GARIMPAR */
-    --cp-botao-sobe: -1.5vw;   /* sobe o botão: mais negativo = mais alto */
-    --cp-rodape-y: -1vw;       /* sobe o texto + botão juntos */
+    --cp-titulo: 2.7vw;
+    --cp-texto: 2.3vw;
+    --cp-botao-texto: 3.2vw;   /* tamanho do GARIMPAR */
+    --cp-botao-sobe: -1.5vw;   /* mais negativo = botão mais alto */
+    --cp-rodape-y: -1vw;
   }
   .cp-rodape { gap: 1vw; }
   .cp-botao { padding: 0; }
+  .cp-botao__mob {
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--cp-botao-texto);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #000;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .cp-giro, .cp-botao { transition: none; }
