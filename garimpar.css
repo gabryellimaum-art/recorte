@@ -168,19 +168,30 @@ body { font-family: "Montserrat", sans-serif; }
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .tela {
-    --frase-tamanho: 0.9rem;     /* frase */
-    --botao-fonte: 0.85rem;      /* botão "Ir ao manequim" um pouco menor */
-    --tela-gap: 1.8rem;          /* espaço igual entre RE.CORTE, frase, botão e faixa */
-    --tela-desce: 0rem;
-    --faixa-altura: 4.5rem;
-    min-height: 0;               /* deixa de ocupar a tela toda: a parte azul encolhe */
-    padding: 2.6rem 0 2.2rem;    /* respiro em cima e embaixo */
+    --logo-largura: 70%;          /* tamanho do RE.CORTE (maior = maior) */
+    --frase-tamanho: 0.9rem;      /* frase */
+    --botao-fonte: 0.85rem;       /* botão "Ir ao manequim" */
+    --tela-gap: 1.8rem;           /* espaço entre RE.CORTE, frase, botão e faixa */
+    --faixa-altura: 4.5rem;       /* altura da faixa em loop */
+    min-height: 0;
+    padding: 2.6rem 0 2.2rem;     /* 1º valor: espaço em cima (maior = tudo desce) | 2º: embaixo */
   }
-  .faixa__trilho { gap: 2.5rem; }
-  .faixa__nome { font-size: clamp(2.8rem, 13.5vw, 7rem); }   /* acompanha o RE.CORTE */
-  .faixa__peca { height: 12vw; }
-}
 
+  /* faixa em loop */
+  .faixa__trilho { gap: 2.5rem; }                              /* espaço entre nomes e roupas */
+  .faixa__nome { font-size: clamp(2.8rem, 13.5vw, 7rem); }     /* tamanho dos nomes */
+  .faixa__peca { height: 12vw; }                               /* tamanho das roupas */
+
+  /* botões de roupa em volta do logo (% do logo) */
+  .capa__botao--conjunto { width: 25%; left: -30.5%; top: 78%; }    /* verde + escuro */
+  .capa__botao--escuro   { width: 12.8%; left: 115.4%; top: -45%; } /* canto superior direito */
+
+  /* mover UM elemento sem mexer nos outros: negativo sobe, positivo desce */
+  .capa__marca { translate: 0 0; }       /* RE.CORTE + botões de roupa */
+  .capa__frase { translate: 0 0; }
+  .ir-manequim { translate: 0 0; }
+  .faixa       { translate: 0 0; }
+}
 /* ================= MOVIMENTO REDUZIDO ================= */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

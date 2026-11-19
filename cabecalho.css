@@ -133,20 +133,26 @@
 
 @media (max-width: 768px) {
   .cabecalho { padding: 0.5rem 3vw; }
-  .cabecalho__nav { display: flex; justify-content: center; }
-  .cabecalho__grupo { display: none; }                 /* some a barra de botões */
-  .cabecalho__tesoura { height: 3.2rem; margin: 0; }   /* tamanho do logo central */
+   .cabecalho { padding: 0.6rem 3vw; }
+  .cabecalho__nav { display: none; }          /* some tesoura e botões da barra */
 
   .cabecalho .cabecalho__casa {
     display: flex;
-    position: absolute;
-    left: 3vw;
-    top: 50%;
-    translate: 0 -50%;
-    width: auto;
-    padding: 0.1rem 0.2rem 0.4rem;
+    width: fit-content;
+    margin: 0 auto;                           /* centralizado */
+    padding: 0.35rem 0.55rem 0.6rem;
   }
-  .cabecalho__casa .cab-icone { height: 1.5rem; }
+  .cabecalho__barras {                        /* os 3 tracinhos */
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+    width: 1.5rem;                            /* largura do ícone */
+  }
+  .cabecalho__barras span {
+    display: block;
+    height: 0.2rem;                           /* grossura dos tracinhos */
+    background: var(--ui-texto, #000);
+  }
 
   .lateral__fundo {
     display: block;

@@ -88,3 +88,15 @@
 }
 .rodape__alvo--tesoura { left: 13.5%; top: -18%; width: 18%; height: 42%; }
 .rodape__alvo--letras  { left: 17.5%; top: 34%;  width: 67%; height: 33%; }
+
+/* ===== MOBILE (celular em pé) ===== */
+@media (max-width: 768px) {
+  .rodape {
+    aspect-ratio: 1.8 / 1;      /* altura do rodapé: número menor = rodapé mais alto */
+    --arte-largura: 92%;        /* tamanho da tesoura + RE.CORTE */
+    --arte-x: 4%;               /* maior = mais para a direita */
+    --arte-y: -20%;             /* mais negativo = sobe */
+    --legenda-base: 8%;         /* altura do texto de baixo (maior = sobe) */
+  }
+  .rodape__legenda { font-size: 0.6rem; }    /* tamanho do texto de baixo */
+}

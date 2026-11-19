@@ -108,7 +108,11 @@
     type: "button", "aria-label": "Abrir menu",
     "aria-expanded": "false", "aria-controls": "menu-lateral"
   });
-  casa.appendChild(el("img", "cab-icone", { src: PASTA + "icone-inicio@4x.png", alt: "", "aria-hidden": "true" }));
+var barras = el("span", "cabecalho__barras", { "aria-hidden": "true" });
+barras.appendChild(el("span"));
+barras.appendChild(el("span"));
+barras.appendChild(el("span"));
+casa.appendChild(barras);
   cabecalho.appendChild(casa);
 
   var fundo = el("div", "lateral__fundo");
