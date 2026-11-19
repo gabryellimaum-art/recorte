@@ -228,7 +228,28 @@
 
 /* a tesoura da barra de cima reabre o popup */
 .cabecalho__tesoura[role="button"] { cursor: pointer; }
+/* botão GARIMPAR: só texto */
+.cp-botao {
+  padding: 0.3em 0.6em;
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--cp-botao-texto, 1vw);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #000;
+  text-transform: uppercase;
+}
 
+/* ===== MOBILE (celular em pé) ===== */
+@media (max-width: 768px) {
+  .cards-pop {
+    --cp-largura: 92vw;        /* popup maior na tela */
+    --cp-titulo: 3.3vw;
+    --cp-texto: 2.9vw;         /* "Surgiu alguma dúvida..." */
+    --cp-botao-texto: 4.2vw;   /* GARIMPAR */
+  }
+  .cp-rodape { gap: 1.6vw; }
+}
 @media (prefers-reduced-motion: reduce) {
   .cp-giro, .cp-botao { transition: none; }
 }
+

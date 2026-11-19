@@ -185,3 +185,7 @@
 
 /* seta esquerda (espelhada) */
 .manequim__seta--esq { left: 36%; scale: -1 1; }
+
+@media (max-width: 768px) {
+  .manequim__seta--dir { left: 80%; }   /* era 64%: maior = mais à direita */
+}
