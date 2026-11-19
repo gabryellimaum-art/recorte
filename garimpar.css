@@ -184,7 +184,7 @@ body { font-family: "Montserrat", sans-serif; }
   .capa__botao--conjunto { width: 25%; left: -30.5%; top: 78%; }
   .capa__botao--escuro   { width: 12.8%; left: 115.4%; top: -45%; }
 
-  .capa__marca { translate: 0 1rem; }
+  .capa__marca { translate: 0 2rem; }
   .capa__frase { translate: 0 0; }
   .ir-manequim { translate: 0 0; }
   .faixa       { translate: 0 0; }
