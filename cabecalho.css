@@ -231,3 +231,14 @@
   .lateral__sub a[data-colecao="faveleiras"] { border-color: #ff2e8a; }
   .lateral__sub a[data-colecao="raizes"]     { border-color: #7628ff; }
 }
+
+/* reforço: tira a moldura do botão menu no celular */
+@media (max-width: 768px) {
+  .cabecalho .cabecalho__casa.cab-botao {
+    border: 0;
+    border-image: none;
+    background: transparent;
+    filter: none;
+    padding: 0.5rem 0.7rem;
+  }
+}

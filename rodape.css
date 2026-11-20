@@ -92,10 +92,10 @@
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .rodape {
-    aspect-ratio: 1.8 / 1;      /* altura do rodapé: número menor = rodapé mais alto */
+    aspect-ratio: 2.8 / 1;      /* altura do rodapé: número maior = rodapé mais baixo */
     --arte-largura: 92%;        /* tamanho da tesoura + RE.CORTE */
     --arte-x: 4%;               /* maior = mais para a direita */
-    --arte-y: -20%;             /* mais negativo = sobe */
+    --arte-y: -36%;             /* mais negativo = sobe */
     --legenda-base: 8%;         /* altura do texto de baixo (maior = sobe) */
   }
   .rodape__legenda { font-size: 0.6rem; }    /* tamanho do texto de baixo */

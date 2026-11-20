@@ -212,4 +212,6 @@ body { font-family: "Montserrat", sans-serif; }
   .faixa__peca { height: 6vw; }                          /* roupas da faixa menores */
   .faixa { translate: 0 -0.5rem; }                         /* aproxima a faixa do botão */
     .ir-manequim { translate: 0 -0.4rem; }   /* negativo sobe, positivo desce */
+      .capa__botao--conjunto { left: -20%; }               /* verde + escuro: era -30.5% */
+  .capa__botao--escuro   { left: 108%; top: -32%; }    /* canto direito: era 115.4% e -45% */
 }
