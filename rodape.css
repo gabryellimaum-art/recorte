@@ -92,7 +92,7 @@
 /* ===== MOBILE (celular em pé) ===== */
 @media (max-width: 768px) {
   .rodape {
-    aspect-ratio: 2.8 / 1;      /* altura do rodapé: número maior = rodapé mais baixo */
+    aspect-ratio: 3 / 2;      /* altura do rodapé: número maior = rodapé mais baixo */
     --arte-largura: 92%;        /* tamanho da tesoura + RE.CORTE */
     --arte-x: 4%;               /* maior = mais para a direita */
     --arte-y: -36%;             /* mais negativo = sobe */
