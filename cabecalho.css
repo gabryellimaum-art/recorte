@@ -136,12 +136,18 @@
    .cabecalho { padding: 0.6rem 3vw; }
   .cabecalho__nav { display: none; }          /* some tesoura e botões da barra */
 
-  .cabecalho .cabecalho__casa {
+   .cabecalho .cabecalho__casa {
     display: flex;
     width: fit-content;
-    margin: 0 auto;                           /* centralizado */
-    padding: 0.35rem 0.55rem 0.6rem;
+    margin: 0 auto;
+    padding: 0.5rem 0.7rem;       /* área de toque do botão */
+    border: 0;                    /* tira a moldura */
+    border-image: none;
+    background: transparent;
+    filter: none;
   }
+  .cabecalho .cabecalho__casa:hover { transform: none; filter: none; }
+  .cabecalho .cabecalho__casa:focus-visible { outline: 3px solid var(--azul, #1557ff); outline-offset: 2px; }
   .cabecalho__barras {                        /* os 3 tracinhos */
     display: flex;
     flex-direction: column;

@@ -170,7 +170,7 @@ body { font-family: "Montserrat", sans-serif; }
   .tela {
     --logo-largura: 70%;
     --frase-tamanho: 0.8rem;
-    --botao-fonte: 0.75rem;
+    --botao-fonte: 0.68rem;
     --tela-gap: 1.8rem;
     --faixa-altura: 3.8rem;
     min-height: 0;
@@ -211,4 +211,5 @@ body { font-family: "Montserrat", sans-serif; }
     .faixa__nome { font-size: clamp(1.3rem, 7vw, 7rem); } /* nomes da faixa menores */
   .faixa__peca { height: 6vw; }                          /* roupas da faixa menores */
   .faixa { translate: 0 -0.5rem; }                         /* aproxima a faixa do botão */
+    .ir-manequim { translate: 0 -0.4rem; }   /* negativo sobe, positivo desce */
 }
