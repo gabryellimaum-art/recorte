@@ -202,13 +202,13 @@ body { font-family: "Montserrat", sans-serif; }
     --frase-tamanho: 0.8rem;     /* frase menor */
     --botao-fonte: 0.75rem;      /* botão menor */
     --tela-gap: 1.6rem;          /* espaço entre RE.CORTE, frase, botão e faixa */
-    --faixa-altura: 2;      /* faixa em loop menos alta */
+    --faixa-altura: 2rem;      /* faixa em loop menos alta */
     min-height: 0;
     padding: 3.2rem 0 2rem;      /* 3.2rem em cima = RE.CORTE mais para baixo | 2rem embaixo */
   }
 
   .faixa__trilho { gap: 1.2rem; }
-  .faixa__nome { clamp(1.3rem, 7vw, 7rem); }   /* nomes da faixa menores */
+    .faixa__nome { font-size: clamp(1.3rem, 7vw, 7rem); } /* nomes da faixa menores */
   .faixa__peca { height: 6vw; }                          /* roupas da faixa menores */
   .faixa { translate: 0 -0.5rem; }                         /* aproxima a faixa do botão */
 }
