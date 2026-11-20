@@ -216,14 +216,3 @@ body { font-family: "Montserrat", sans-serif; }
   .capa__botao--escuro   { left: 108%; top: -32%; }    /* canto direito: era 115.4% e -45% */
 }
 
-/* ===== RODAPÉ MOBILE ===== */
-@media (max-width: 768px) {
-  footer.rodape {
-    aspect-ratio: 2.8 / 1;
-    --arte-largura: 92%;
-    --arte-x: 4%;
-    --arte-y: -36%;
-    --legenda-base: 8%;
-  }
-  footer.rodape .rodape__legenda { font-size: 0.6rem; }
-}
